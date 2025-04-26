@@ -1,0 +1,24 @@
+{
+  "name": "log-entry-manager",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "ui",
+    "server"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:server\" \"npm run start:ui\"",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:ui\"",
+    "start:ui": "npm run start --workspace=ui",
+    "start:server": "npm run start --workspace=server",
+    "dev:ui": "npm run dev --workspace=ui",
+    "dev:server": "npm run dev --workspace=server",
+    "test": "npm run test --workspaces",
+    "test:coverage": "npm run test:coverage --workspaces",
+    "prisma:generate": "cd server && npx prisma generate",
+    "prisma:init": "cd server && npx prisma init"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
